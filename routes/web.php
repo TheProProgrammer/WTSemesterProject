@@ -13,10 +13,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
-
-Route::get('/login.html', function () {
-    return view('login');
-});
+Route::get('/login', 'App\Http\Controllers\myController@login');
+Route::get('/', 'App\Http\Controllers\myController@index');

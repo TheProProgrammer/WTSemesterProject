@@ -33,7 +33,7 @@
                         <a class="nav-link" href="#">My Account</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="login.blade.html">Login</a>
+                        <a class="nav-link" href="/login">Login</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Cart</a>

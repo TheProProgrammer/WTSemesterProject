@@ -18,25 +18,6 @@
         }
         
     </style>
-    <?php
-    if(isset($_POST["text-input"]) && isset($_POST["text-input"]))
-    {
-        
-    $name = $_POST["text-input"];
-    $pwd = $_POST["password-input"];
-    if($name === 'user' && $pwd === 'password')
-    {
-        header("Location: index.php");
-        exit();
-    }
-    else
-    {
-        echo("invalid");
-    }
-    }
-
-    ?>
-    <script src="scripts/script.js"></script>
 </head>
 <body>
     <!-- Navbar -->
