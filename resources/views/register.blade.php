@@ -51,10 +51,10 @@
             <div class="col-md-6">
                 <div class="loginDiv">
                     <div class="jumbotron">
-                        <h1 class="display-4">Login</h1>
+                        <h1 class="display-4">Register</h1>
                       </div>
                     
-                    <form method="POST" action="/login">
+                    <form method="POST" action="/register">
                         @csrf
                     <fieldset title="Basic inputs" id="ïnput">
                     
