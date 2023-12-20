@@ -66,7 +66,7 @@
                     <label for="password-input">Password Input:</label>
                     <input type="password" id="password" name="password-input" placeholder="Enter your password">
                     
-                    <input type="submit" value="Submit" onclick="return validateForm();">
+                    <input type="submit" value="Login" onclick="return validateForm();">
                 </fieldset>
     </form>
                     <div><h3 id="error"></h3></div>
