@@ -1,23 +1,26 @@
-function validateForm()
-{
-    var username = document.getElementById('username').value;
-    var password = document.getElementById('password').value;
+function validateForm() {
+    var email = document.getElementById("email").value;
+    var fullname = document.getElementById("fullname").value;
+    var phone = document.getElementById("phone").value;
+    var address = document.getElementById("address").value;
+    var pfp = document.getElementById("pfp").value;
+    var password = document.getElementById("password").value;
 
-    var usernameRegex = /^[a-zA-Z0-9]{4,7}$/;
-    if(!usernameRegex.test(username))
-    {
-        displayError("Invalid username");
+    if (email.trim() === "" || fullname.trim() === "" || phone.trim() === "" || address.trim() === "" || pfp.trim() === "" || password.trim() === "") {
+        document.getElementById("error").innerText = "All fields are required";
         return false;
     }
 
-    if(password.length<6)
-    {
-        displayError("Ïnvalid Password");
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        document.getElementById("error").innerText = "Invalid email address";
+        return false;
+    }
+
+    var passwordRegex = /^.{8,}$/;
+    if (!passwordRegex.test(password)) {
+        document.getElementById("error").innerText = "Password must be at least 8 characters long";
         return false;
     }
     return true;
-}
-function displayError(msg){
-    var messageBox = document.getElementById("error");
-    messageBox.innerHTML = msg;
 }

@@ -54,7 +54,7 @@
                     <h1 class="display-4">Register</h1>
                 </div>
 
-                <form method="POST" action="/register" enctype="multipart/form-data">
+                <form method="POST" action="/register">
                     @csrf
                     <fieldset title="User Registration" id="userRegistration">
 
