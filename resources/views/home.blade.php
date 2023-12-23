@@ -35,9 +35,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/login">Login</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Cart</a>
-                    </li>
                 </ul>
             </div>
         </div>
@@ -49,7 +46,7 @@
                 <div class="row row-cols-1 row-cols-md-2">
                 @foreach ($products as $product)
                     <div class="card col-xs-4" style="width: 18rem; margin: 0.5rem;">
-                        <img class="card-img-top" src="assets/image_def.jpg" alt="Card image cap">
+                        <img class="card-img-top" src="{{ $product->thumbnail}}" alt="Card image">
                         <div class="card-body">
                           <h5 class="card-title">{{ $product->title }}</h5>
                           <p class="card-text">{{ $product->description }}</p>

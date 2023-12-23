@@ -11,7 +11,7 @@ class myController extends Controller
 {
     public function index () 
     {
-        $products = DB::select('select * from products');
+        $products = DB::select('SELECT * FROM products');
         return view('home', ['products' => $products]);
     }
     public function login(Request $request)
