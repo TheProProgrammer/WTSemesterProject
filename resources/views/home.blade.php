@@ -46,55 +46,17 @@
     <!-- Page Content -->
     <div class="container">
         <div class="row">
-            <div class="card col-xs-4" style="width: 18rem; margin: 0.5rem;">
-                        <img class="card-img-top" src="assets/image1.jpg" alt="Card image cap">
-                        <div class="card-body">
-                          <h5 class="card-title">2018 Dodge RAM</h5>
-                          <p class="card-text">Ohio Registered | 25000 miles | Diesel variant</p>
-                          <p class="card-text">Highest bid: <span style="color: #2a5ac0; font-weight: 700;">49200 USD</span></p>
-                          <p class="card-text">Closes in: <span style="color: #db1515; font-weight: 700;">15 HOURS!</span></p>
-                          <a href="product.html" class="btn btn-primary">CHECKOUT!</a>
-                        </div>
+        <div class="container">
+        <h1>All Ads</h1>
+
+        @foreach ($products as $product)
+            <div>
+                <h2>{{ $product->title }}</h2>
+                <p>{{ $product->description }}</p>
+                <p>Price: ${{ $product->price }}</p>
             </div>
-            <div class="card col-xs-4" style="width: 18rem; margin: 0.5rem;">
-                        <img class="card-img-top" src="assets/image3.jpg" alt="Card image cap">
-                        <div class="card-body">
-                          <h5 class="card-title">Lenovo ThinkPad 2340</h5>
-                          <p class="card-text">Core i7 4thGen | 8GB RAM | 128GB SSD</p>
-                          <p class="card-text">Highest bid: <span style="color: #2a5ac0; font-weight: 700;">260 USD</span></p>
-                          <p class="card-text">Closes in: <span style="color: #db1515; font-weight: 700;">15 HOURS!</span></p>
-                          <a href="#" class="btn btn-primary">CHECKOUT!</a>
-                        </div>
-            </div>
-            <div class="card col-xs-4" style="width: 18rem; margin: 0.5rem;">
-                <img class="card-img-top" src="assets/image4.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">2021 Cadilac Eldorado</h5>
-                  <p class="card-text">Minesotta Registered | 2000 miles | Petrol variant</p>
-                  <p class="card-text">Highest bid: <span style="color: #2a5ac0; font-weight: 700;">35700 USD</span></p>
-                  <p class="card-text">Closes in: <span style="color: #db1515; font-weight: 700;">15 HOURS!</span></p>
-                  <a href="#" class="btn btn-primary">CHECKOUT!</a>
-                </div>
-            </div>
-            <div class="card col-xs-4" style="width: 18rem; margin: .5rem;">
-                <img class="card-img-top" src="assets/image5.jpg" alt="Card image cap">
-                <div class="card-body">
-          <h5 class="card-title">iPhone 6 256GB</h5>
-          <p class="card-text">BLack color | Screen cracked | FaceID Working</p>
-          <p class="card-text">Highest bid: <span style="color: #2a5ac0; font-weight: 700;">99 USD</span></p>
-          <p class="card-text">Closes in: <span style="color: #db1515; font-weight: 700;">15 HOURS!</span></p>
-          <a href="#" class="btn btn-primary">CHECKOUT!</a>
-            </div>
-            </div>
-            <div class="card col-xs-4" style="width: 18rem; margin: 0.5rem;">
-                <img class="card-img-top" src="assets/image2.jpg" alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">HP LaserJet 2350</h5>
-                  <p class="card-text">Carefully used | Ink not included</p>
-                  <p class="card-text">Highest bid: <span style="color: #2a5ac0; font-weight: 700;">96 USD</span></p>
-                  <p class="card-text">Closes in: <span style="color: #db1515; font-weight: 700;">15 HOURS!</span></p>
-                  <a href="#" class="btn btn-primary">CHECKOUT!</a>
-                </div>
+            <hr>
+        @endforeach
     </div>
         </div>
     </div>

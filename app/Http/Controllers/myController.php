@@ -4,17 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Product;
+
 
 class myController extends Controller
 {
     public function index () 
-    { 
-        return view('home');
+    {
+        $products = DB::select('select * from products');
+        return view('home', ['products' => $products]);
     }
-    /*public function login () 
-    { 
-        return view('login');
-    }*/
     public function login(Request $request)
     {
         $method = $request->method();
@@ -27,7 +26,7 @@ class myController extends Controller
             $user = $request->input('text-input');
             $pass = $request->input('password-input');
 
-            $found = DB::select('select * from logininfo where username = "'.$user.'"'.' and password = '.'"'.$pass.'"');
+            $found = DB::select('select * from users where email = "'.$user.'"'.' and pass = '.'"'.$pass.'"');
             
             if(count($found) > 0)
                 echo "User Exists";

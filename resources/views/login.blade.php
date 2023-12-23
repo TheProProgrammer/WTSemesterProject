@@ -58,12 +58,10 @@
                         @csrf
                     <fieldset title="Basic inputs" id="ïnput">
                     
-                    <h2>Username</h2>
-                    <label for="text-input">Text Input:</label>
+                    <label for="text-input">Email:</label>
                     <input type="text" id="username" name="text-input" placeholder="Enter text here">
                 
-                    <h2>Password:</h2>
-                    <label for="password-input">Password Input:</label>
+                    <label for="password-input">Password:</label>
                     <input type="password" id="password" name="password-input" placeholder="Enter your password">
                     
                     <input type="submit" value="Login" onclick="return validateForm();">
