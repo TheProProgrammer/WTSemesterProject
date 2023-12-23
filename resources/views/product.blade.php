@@ -1,69 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Details - eBay Clone</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <style>
-        body {
-            background-color: #f8f9fa;
-        }
+@extends('layouts/parentLayout')
 
-        .navbar {
-            background-color: #ffffff;
-        }
+@section('title', 'Product')
+@section('content')
 
-        .product-image {
-            width: 100%;
-            height: auto;
-        }
-
-        .product-details {
-            margin-top: 20px;
-        }
-
-        .footer {
-            background-color: #343a40;
-            color: #ffffff;
-            text-align: center;
-            padding: 10px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
-</head>
-<body>
-
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container">
-        <a class="navbar-brand" href="index.html">eBay Clone</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Products</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">My Account</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Cart</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
-<!-- Product Details -->
-<div class="container">
     <div class="row">
         <div class="col-md-6">
             <img class="product-image" src="assets/image1.jpg" alt="Product Image">
@@ -79,16 +18,4 @@
             </div>
         </div>
     </div>
-</div>
-
-<!-- Footer -->
-<footer class="footer">
-    <div class="container">
-        <p>&copy; 2023 eBay Clone</p>
-        <p>Contact Us | Privacy Policy | Terms & Conditions</p>
-    </div>
-</footer>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+@endsection
