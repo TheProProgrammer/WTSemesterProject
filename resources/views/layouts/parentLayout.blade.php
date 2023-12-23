@@ -33,7 +33,7 @@
                     <a class="nav-link" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Products</a>
+                    <a class="nav-link" href="post">Post a Product</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">My Account</a>

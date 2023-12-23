@@ -52,4 +52,8 @@ class myController extends Controller
             return view('register');
         }
     }
+    public function post()
+    {
+        return view('post');
+    }
 }
