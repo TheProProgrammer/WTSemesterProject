@@ -23,17 +23,20 @@ class myController extends Controller
             return view('login');
         }
         else{
-            $user = $request->input('text-input');
+            $user = $request->input('username-input');
             $pass = $request->input('password-input');
 
             $found = DB::select('select * from users where email = "'.$user.'"'.' and pass = '.'"'.$pass.'"');
-            
-            if(count($found) > 0)
-                echo "User Exists";
-            else
-                echo "User not Exist";
 
-            return view('login');
+            if(count($found) > 0)
+            {
+                return myController::index();
+            }
+            else
+            {
+                $msg = 'Wrong password. Please try again.';
+                return view('login', compact('msg'));
+            }
         }
     }
     public function register(Request $request)

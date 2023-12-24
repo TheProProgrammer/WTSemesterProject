@@ -15,7 +15,7 @@
         <input type="submit" value="Login" onclick="return validateForm();">
     </fieldset>
     </form>
-    <div><h3 id="error"></h3></div>
+    <div><h3 id="error">{{ $msg ?? '' }}</h3></div>
     <h3>New Here? <a href="register">Register</a></h3>
 </div>
 @endsection
