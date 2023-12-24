@@ -19,7 +19,9 @@
         </ul>
     </nav>
 
+    <body>
     @yield('content')
+    </body>
 
     <footer>
             <div>

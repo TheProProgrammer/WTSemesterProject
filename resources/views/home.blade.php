@@ -10,7 +10,6 @@
 </head>
 
 @section('content')
-<body>
     <header>
         <h1>All Ads</h1>
     </header>
@@ -28,5 +27,4 @@
             </div>
         @endforeach
     </div>
-</body>
 @endsection
