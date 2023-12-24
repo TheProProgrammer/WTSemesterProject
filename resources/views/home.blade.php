@@ -12,6 +12,7 @@
 @section('content')
     <header>
         <h1>All Ads</h1>
+        <h1>{{$user_id}}</h1>
     </header>
 
     <div class="gridContainer">

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Product;
@@ -12,7 +13,7 @@ class myController extends Controller
     public function index () 
     {
         $products = DB::select('SELECT * FROM products');
-        return view('home', ['products' => $products]);
+        return view('home', ['products' => $products, 'user_id' => session()->get('user_id')]);
     }
     public function login(Request $request)
     {
@@ -30,6 +31,7 @@ class myController extends Controller
 
             if(count($found) > 0)
             {
+                session()->put('user_id', $found[0]->user_id);
                 return myController::index();
             }
             else
@@ -55,8 +57,11 @@ class myController extends Controller
             $address = $request->input('address-input');
             $pfp = $request->input('pfp-input');
 
-            $found = DB::insert('insert into users (email, pass, name, phone_number, address, pfp_location) values (?,?,?,?,?,?)',[$email,$password, $fullname, $phone, $address, $pfp]);
+            DB::insert('insert into users (email, pass, name, phone_number, address, pfp_location) values (?,?,?,?,?,?)',[$email,$password, $fullname, $phone, $address, $pfp]);
             
+            $found = DB::select('select * from users where email = "'.$email.'"'.' and pass = '.'"'.$password.'"');
+            session()->put('user_id', $found[0]->user_id);
+
             return myController::index();
         }
     }
