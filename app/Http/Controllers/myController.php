@@ -5,15 +5,14 @@ namespace App\Http\Controllers;
 use Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Http\Controllers\Product;
 use App\Models\User_Info;
-
+use App\Models\Product;
 
 class myController extends Controller
 {
     public function index () 
     {
-        $products = DB::select('SELECT * FROM products');
+        $products = Product::all();
         return view('home', ['products' => $products, 'user_id' => session()->get('user_id')]);
     }
     public function login(Request $request)
