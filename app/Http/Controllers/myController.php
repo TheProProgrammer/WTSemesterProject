@@ -48,11 +48,16 @@ class myController extends Controller
             return view('register');
         }
         else{
-            $user = $request->input('text-input');
-            $pass = $request->input('password-input');
+            $email = $request->input('email-input');
+            $password = $request->input('password-input');
+            $fullname = $request->input('fullname-input');
+            $phone = $request->input('phone-input');
+            $address = $request->input('address-input');
+            $pfp = $request->input('pfp-input');
 
-            $found = DB::insert('insert into logininfo (username, password) values (?,?)',[$user,$pass]);
-            return view('register');
+            $found = DB::insert('insert into users (email, pass, name, phone_number, address, pfp_location) values (?,?,?,?,?,?)',[$email,$password, $fullname, $phone, $address, $pfp]);
+            
+            return myController::index();
         }
     }
     public function post()
