@@ -1,0 +1,112 @@
+body {
+    background-color: #f8f9fa;
+    color: #495057;
+    font-family: 'PT-Sans';
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+nav {
+    background-color: #fff;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    display: flex;
+    justify-content: space-between;
+}
+.navbar-brand {
+    color: #007bff;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;   
+}
+.navbar-nav {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+.navbar-nav li {
+    margin: auto;
+    margin-right: 10px;
+}
+.navbar-nav a:not(.loginButton) {
+    color: #495057;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+.navbar-nav a:hover:not(.loginButton) {
+    color: #007bff;
+    font-size:1.15rem;
+}
+.loginButton{
+    display: inline-block;
+    padding: 8px 16px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+}
+.loginButton:hover{
+    background-color: #2a5ac0;
+}
+footer{
+    background-color:#333333;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+footer p{
+    color: #fff;
+}
+
+
+.gridContainer {
+    margin: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+}
+.card {
+    border: 1px solid #ddd;
+    border-radius: 16px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    background-color: #fff;
+}
+img {
+    max-width: 250px;
+    max-height: 200px;
+    border-radius: 8px;
+}
+.card-body {
+    text-align: left;
+}
+.card-title {
+    font-size: 1.5rem;
+    margin: 10px 0;
+}
+.card-text {
+    margin-bottom: 10px;
+}
+price{
+    color: #007bff;
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    font-size: large;
+}
+.btn {
+    display: inline-block;
+    padding: 8px 16px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    background-color: #2a5ac0;
+    color: #fff;
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+}

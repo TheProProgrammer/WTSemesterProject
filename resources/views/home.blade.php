@@ -1,20 +1,32 @@
 @extends('layouts/parentLayout')
 
 @section('title', 'Home')
-@section('content')
 
-    <h1>All Ads</h1>
-    <div class="row row-cols-1 row-cols-md-2">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="styles/styles.css">
+</head>
+
+@section('content')
+<body>
+    <header>
+        <h1>All Ads</h1>
+    </header>
+
+    <div class="gridContainer">
         @foreach ($products as $product)
-            <div class="card col-xs-4" style="width: 18rem; margin: 0.5rem;">
-                <img class="card-img-top" src="{{ $product->thumbnail}}" alt="Card image">
+            <div class="card">
+                <img src="{{ $product->thumbnail }}" alt="Card image">
                 <div class="card-body">
-                    <h5 class="card-title">{{ $product->title }}</h5>
+                    <h2 class="card-title">{{ $product->title }}</h2>
                     <p class="card-text">{{ $product->description }}</p>
-                    <p class="card-text">Price: <span style="color: #2a5ac0; font-weight: 700;">${{ $product->price }}</span></p>
-                    <a href="product.html" class="btn btn-primary">CHECKOUT!</a>
+                    <p class="card-text">Price: <price>${{ $product->price }}</price></p>
+                    <a href="product.html" class="btn">CHECKOUT!</a>
                 </div>
             </div>
         @endforeach
     </div>
-    @endsection
+</body>
+@endsection
