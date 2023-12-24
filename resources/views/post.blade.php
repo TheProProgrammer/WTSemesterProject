@@ -3,34 +3,22 @@
 @section('title', 'Post')
 @section('content')
 
-<h2>Add a New Product</h2>
-    <form>
-        <!-- Product Title -->
-        <div class="form-group">
-            <label for="title">Title:</label>
-            <input type="text" class="form-control" id="title" name="title" required>
-        </div>
+<div class="loginDiv">
+    <h1>Add a New Product</h1>
+    <form method="POST" action="/postProduct">
+        <label for="title">Title:</label>
+        <input type="text"  id="title" name="title" required>
 
-        <!-- Product Description -->
-        <div class="form-group">
-            <label for="description">Description:</label>
-            <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
-        </div>
-
-        <!-- Product Price -->
-        <div class="form-group">
-            <label for="price">Price:</label>
-            <input type="number" class="form-control" id="price" name="price" step="0.01" required>
-        </div>
-
-        <!-- Product Image URL -->
-        <div class="form-group">
-            <label for="image">Image:</label>
-            <input type="file" class="form-control" id="image" name="image" required>
-        </div>
-
-        <!-- Submit Button -->
+        <label for="description">Description:</label>
+        <textarea  id="description" name="description" rows="3" required></textarea>
+        
+        <label for="price">Price:</label>
+        <input type="number"  id="price" name="price" required>
+        
+        <label for="image">Image:</label>
+        <input type="file"  id="image" name="image" required>    
+        
         <button type="submit" class="btn btn-primary">Add Product</button>
     </form>
-
+</div>
 @endsection
