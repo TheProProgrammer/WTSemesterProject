@@ -21,7 +21,7 @@ class myController extends Controller
 
         if ($request->isMethod('get')) 
         {
-            return view('login');
+            return view('login', ['user_id' => session()->get('user_id')]);
         }
         else{
             $user = $request->input('username-input');
@@ -37,9 +37,14 @@ class myController extends Controller
             else
             {
                 $msg = 'Wrong password. Please try again.';
-                return view('login', compact('msg'));
+                return view('login', ['user_id' => session()->get('user_id'), 'msg' => $msg]);
             }
         }
+    }
+    public function logout(Request $request)
+    {
+        session()->put('user_id', 0);
+        return myController::index();
     }
     public function register(Request $request)
     {
@@ -67,6 +72,6 @@ class myController extends Controller
     }
     public function post()
     {
-        return view('post');
+        return view('post', ['user_id' => session()->get('user_id')]);
     }
 }

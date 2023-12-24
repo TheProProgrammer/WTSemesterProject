@@ -12,10 +12,13 @@
     <nav>
         <a class="navbar-brand" href="/">eBay Clone</a>
         <ul class="navbar-nav">
-            <li><a href="/">Home</a></li>
-            <li><a href="post">Post a Product</a></li>
-            <li><a href="#">My Account</a></li>
-            <li><a class= "loginButton" href="login">Login</a></li>
+            @if($user_id != 0)
+                <li><a href="post">Post</a></li>
+                <li><a href="#">My Account</a></li>
+                <a class="loginButton" href="/logout">Logout</a>
+            @else
+                <a class="loginButton" href="/login">Login</a>
+            @endif
         </ul>
     </nav>
 
