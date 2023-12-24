@@ -21,6 +21,8 @@ nav {
     color: #007bff;
     font-size: 1.5rem;
     font-weight: bold;
+    margin: 0px;
+    padding: 2px;
     text-decoration: none;   
 }
 .navbar-nav {
