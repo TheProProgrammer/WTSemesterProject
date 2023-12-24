@@ -6,6 +6,7 @@ use Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Product;
+use App\Models\User_Info;
 
 
 class myController extends Controller
@@ -27,7 +28,7 @@ class myController extends Controller
             $user = $request->input('username-input');
             $pass = $request->input('password-input');
 
-            $found = DB::select('select * from users where email = "'.$user.'"'.' and pass = '.'"'.$pass.'"');
+            $found = User_Info::whereRaw('email = ? and pass = ?', [$user,$pass])->get();
 
             if(count($found) > 0)
             {
@@ -55,23 +56,34 @@ class myController extends Controller
             return view('register', ['user_id' => session()->get('user_id')]);
         }
         else{
-            $email = $request->input('email-input');
-            $password = $request->input('password-input');
-            $fullname = $request->input('fullname-input');
-            $phone = $request->input('phone-input');
-            $address = $request->input('address-input');
-            $pfp = $request->input('pfp-input');
+            $user = new User_Info;
+            $user -> email = $request->input('email-input');
+            $user -> pass = $request->input('password-input');
+            $user -> name = $request->input('fullname-input');
+            $user -> phone_number = $request->input('phone-input');
+            $user -> address = $request->input('address-input');
+            $user -> pfp_location = $request->input('pfp-input');
+            $user->save();
 
-            DB::insert('insert into users (email, pass, name, phone_number, address, pfp_location) values (?,?,?,?,?,?)',[$email,$password, $fullname, $phone, $address, $pfp]);
-            
-            $found = DB::select('select * from users where email = "'.$email.'"'.' and pass = '.'"'.$password.'"');
+            $found = User_Info::whereRaw('email = ? and pass = ?', [$user->email,$user->pass])->get();
             session()->put('user_id', $found[0]->user_id);
 
             return myController::index();
         }
     }
-    public function post()
+    public function post(Request $request)
     {
-        return view('post', ['user_id' => session()->get('user_id')]);
+        $method = $request->method();
+        if ($request->isMethod('get')) 
+        {
+            return view('post', ['user_id' => session()->get('user_id')]);
+        }
+        else{
+            $title = $request->input('title');
+            $description = $request->input('description');
+            $price = $request->input('price');
+            $image = $request->file('image');
+
+        }
     }
 }

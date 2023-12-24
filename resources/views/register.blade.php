@@ -15,22 +15,22 @@
                     <fieldset title="User Registration" id="userRegistration">
 
                         <label for="email-input">Email:</label>
-                        <input type="email" id="email" name="email-input" placeholder="Enter your email">
+                        <input required type="email" id="email" name="email-input" placeholder="Enter your email">
 
                         <label for="fullname-input">Full Name:</label>
-                        <input type="text" id="fullname" name="fullname-input" placeholder="Enter your full name">
+                        <input required type="text" id="fullname" name="fullname-input" placeholder="Enter your full name">
 
                         <label for="phone-input">Phone Number:</label>
-                        <input type="tel" id="phone" name="phone-input" placeholder="Enter your phone number">
+                        <input required type="tel" id="phone" name="phone-input" placeholder="Enter your phone number">
 
                         <label for="address-input">Address:</label>
-                        <textarea type="text" id="address" name="address-input" placeholder="Enter your address"></textarea>
+                        <textarea required type="text" id="address" name="address-input" placeholder="Enter your address"></textarea>
                         
                         <label for="pfp-input">Select Profile Picture:</label>
-                        <input type="file" id="pfp" name="pfp-input" accept="image/*" onchange="displayImage(this)">
+                        <input required type="file" id="pfp" name="pfp-input" accept="image/*" onchange="displayImage(this)">
 
                         <label for="password-input">Password:</label>
-                        <input type="password" id="password" name="password-input" placeholder="Enter your password">
+                        <input required type="password" id="password" name="password-input" placeholder="Enter your password">
 
                         <input type="submit" value="Register" onclick="return validateForm();">
                     </fieldset>
