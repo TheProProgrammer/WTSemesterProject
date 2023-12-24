@@ -13,3 +13,5 @@ Route::post('/register', 'App\Http\Controllers\myController@register');
 Route::get('/', 'App\Http\Controllers\myController@index');
 
 Route::get('/post', 'App\Http\Controllers\myController@post');
+Route::post('/post', 'App\Http\Controllers\myController@post');
+

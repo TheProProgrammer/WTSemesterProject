@@ -5,7 +5,8 @@
 
 <div class="loginDiv">
     <h1>Add a New Product</h1>
-    <form method="POST" action="/postProduct">
+    <form method="POST" action="/post">
+        @csrf
         <label for="title">Title:</label>
         <input type="text"  id="title" name="title" required>
 

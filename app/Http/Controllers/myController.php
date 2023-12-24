@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\User_Info;
 use App\Models\Product;
+use Carbon\Carbon;
 
 class myController extends Controller
 {
@@ -32,7 +33,7 @@ class myController extends Controller
             if(count($found) > 0)
             {
                 session()->put('user_id', $found[0]->user_id);
-                return myController::index();
+                return redirect('/');
             }
             else
             {
@@ -44,7 +45,7 @@ class myController extends Controller
     public function logout(Request $request)
     {
         session()->put('user_id', 0);
-        return myController::index();
+        return redirect('/');
     }
     public function register(Request $request)
     {
@@ -67,7 +68,7 @@ class myController extends Controller
             $found = User_Info::whereRaw('email = ? and pass = ?', [$user->email,$user->pass])->get();
             session()->put('user_id', $found[0]->user_id);
 
-            return myController::index();
+            return redirect('/');
         }
     }
     public function post(Request $request)
@@ -78,11 +79,18 @@ class myController extends Controller
             return view('post', ['user_id' => session()->get('user_id')]);
         }
         else{
-            $title = $request->input('title');
-            $description = $request->input('description');
-            $price = $request->input('price');
-            $image = $request->file('image');
+            $currentTime = Carbon::now()->format('Y-m-d');;
 
+            $product = new Product;
+            $product->title = $request->input('title');
+            $product->description = $request->input('description');
+            $product->price = $request->input('price');
+            //$product->thumbnail = $request->file('image');
+            $product->thumbnail = "images/defImage.jpg";
+            $product->user_id = session()->get('user_id');
+            $product->save();
+
+            return redirect('/');
         }
     }
 }
