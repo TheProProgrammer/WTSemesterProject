@@ -24,8 +24,8 @@
                         <input type="tel" id="phone" name="phone-input" placeholder="Enter your phone number">
 
                         <label for="address-input">Address:</label>
-                        <input type="text" id="address" name="address-input" placeholder="Enter your address">
-
+                        <textarea type="text" id="address" name="address-input" placeholder="Enter your address"></textarea>
+                        
                         <label for="pfp-input">Select Profile Picture:</label>
                         <input type="file" id="pfp" name="pfp-input" accept="image/*" onchange="displayImage(this)">
 

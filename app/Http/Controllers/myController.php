@@ -52,7 +52,7 @@ class myController extends Controller
 
         if ($request->isMethod('get')) 
         {
-            return view('register');
+            return view('register', ['user_id' => session()->get('user_id')]);
         }
         else{
             $email = $request->input('email-input');
