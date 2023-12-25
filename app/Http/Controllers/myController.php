@@ -79,15 +79,21 @@ class myController extends Controller
             return view('post', ['user_id' => session()->get('user_id')]);
         }
         else{
-            $currentTime = Carbon::now()->format('Y-m-d');;
+            $currentDate = Carbon::today();
 
             $product = new Product;
             $product->title = $request->input('title');
             $product->description = $request->input('description');
             $product->price = $request->input('price');
-            //$product->thumbnail = $request->file('image');
-            $product->thumbnail = "images/defImage.jpg";
             $product->user_id = session()->get('user_id');
+            $formattedDate = $currentDate->format('Y-m-d');
+            $product->posted_date = $formattedDate;
+
+            $storedFileName = $request->file('image')->store('public');
+            $storedFileName = str_replace('public', 'storage', $storedFileName);
+
+            $product->thumbnail = $storedFileName;
+
             $product->save();
 
             return redirect('/');

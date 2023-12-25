@@ -17,7 +17,7 @@
     <div class="gridContainer">
         @foreach ($products as $product)
             <div class="card">
-                <img src="{{ $product->thumbnail }}" alt="Card image">
+                <img src="{{url($product->thumbnail)}}" alt="Card image">
                 <div class="card-body">
                     <h2 class="card-title">{{ $product->title }}</h2>
                     <p class="card-text">{{ $product->description }}</p>
