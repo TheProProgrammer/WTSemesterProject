@@ -17,3 +17,7 @@ Route::post('/post', 'App\Http\Controllers\myController@post');
 
 Route::get('/product/{id}', 'App\Http\Controllers\myController@product');
 
+Route::get('/delete/{id}', 'App\Http\Controllers\myController@delete');
+
+Route::get('/account', 'App\Http\Controllers\myController@account');
+

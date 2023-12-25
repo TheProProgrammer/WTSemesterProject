@@ -15,7 +15,7 @@
         <ul class="navbar-nav">
             @if($user_id != 0)
                 <li><a href="post">Post</a></li>
-                <li><a href="#">My Account</a></li>
+                <li><a href="account">My Account</a></li>
                 <a class="loginButton" href="/logout">Logout</a>
             @else
                 <a class="loginButton" href="/login">Login</a>

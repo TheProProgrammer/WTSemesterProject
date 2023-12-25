@@ -103,6 +103,28 @@ class myController extends Controller
     {
         $product = Product::whereRaw('product_id = ?', [$id])->get()[0];
         $user = User_Info::whereRaw('user_id = '.$product->user_id)->get()[0];
+        if(session()->get('user_id') == 0)
+        {
+            $user->phone_number = "xxxxxxxxxxx";
+            $user->address = "xxxxxxxxxxx";
+            $user->name = "Login or create account to view";
+        }
         return view('product',  ['user_id' => session()->get('user_id'), 'product' => $product, 'user' => $user]);
+    }
+    public function account()
+    {
+        $currentUserID = session()->get('user_id');
+
+        $products = Product::whereRaw('user_id = '.$currentUserID)->get();
+        $user = User_Info::whereRaw('user_id = '.$currentUserID)->get()[0];
+
+        return view('account',  ['user_id' => $currentUserID, 'products' => $products, 'user' => $user]);
+    }
+    public function delete($id)
+    {
+
+        if(Product::whereRaw('product_id = '.$id)->get()[0]->user_id == session()->get('user_id'))
+            Product::where('product_id',$id)->delete();
+        return redirect('/account');
     }
 }
