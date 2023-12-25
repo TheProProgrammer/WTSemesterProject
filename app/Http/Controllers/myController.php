@@ -112,7 +112,7 @@ class myController extends Controller
             $validator = Validator::make($request->all(), [
                 'title' => 'required|min:12',
                 'description' => 'required|min:50',
-                'price' => 'required|numeric|min:0',
+                'price' => 'required|numeric|min:1',
                 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ]);
     
