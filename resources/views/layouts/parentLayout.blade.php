@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>eBay - @yield('title')</title>
-    <link rel="stylesheet" href="styles/styles.css">
-    <link rel="icon" type="image/x-icon" href="favicon.png">
+    <link rel="stylesheet" href="{{asset('styles/styles.css')}}">
+    <link rel="icon" type="image/x-icon" href="{{asset('favicon.png')}}">
 </head>
 
 <body>
     <nav>
-        <a class="navbar-brand" href="/"><img src = "images/ebayLogo.png" height="35"></a>
+        <a class="navbar-brand" href="/"><img src = "{{asset('images/ebayLogo.png')}}" height="35"></a>
         <ul class="navbar-nav">
             @if($user_id != 0)
                 <li><a href="post">Post</a></li>

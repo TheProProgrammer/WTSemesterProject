@@ -15,3 +15,5 @@ Route::get('/', 'App\Http\Controllers\myController@index');
 Route::get('/post', 'App\Http\Controllers\myController@post');
 Route::post('/post', 'App\Http\Controllers\myController@post');
 
+Route::get('/product/{id}', 'App\Http\Controllers\myController@product');
+

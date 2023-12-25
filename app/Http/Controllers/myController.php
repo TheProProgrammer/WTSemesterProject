@@ -99,4 +99,10 @@ class myController extends Controller
             return redirect('/');
         }
     }
+    public function product($id)
+    {
+        $product = Product::whereRaw('product_id = ?', [$id])->get()[0];
+        $user = User_Info::whereRaw('user_id = '.$product->user_id)->get()[0];
+        return view('product',  ['user_id' => session()->get('user_id'), 'product' => $product, 'user' => $user]);
+    }
 }
