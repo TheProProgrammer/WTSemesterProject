@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Session;
+Use Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\User_Info;
@@ -60,16 +61,37 @@ class myController extends Controller
 
         if ($request->isMethod('get')) 
         {
+
             return view('register', ['user_id' => session()->get('user_id')]);
         }
         else{
+
+            $validator = Validator::make($request->all(), [
+                'email-input' => 'required|email',
+                'fullname-input' => 'required|min:12',
+                'phone-input' => 'required|regex:/^[0-9\-\+\(\) ]+$/',
+                'address-input' => 'required|string',
+                'pfp-input' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'password-input' => 'required|min:8|regex:/^(?=.*[0-9])/',
+            ]);
+             if ($validator->fails()) {
+            return redirect('/register')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
             $user = new User_Info;
             $user -> email = $request->input('email-input');
             $user -> pass = $request->input('password-input');
             $user -> name = $request->input('fullname-input');
             $user -> phone_number = $request->input('phone-input');
             $user -> address = $request->input('address-input');
-            $user -> pfp_location = $request->input('pfp-input');
+
+            $storedFileName = $request->file('pfp-input')->store('public');
+            $storedFileName = str_replace('public', 'storage', $storedFileName);
+
+            $user->pfp_location = $storedFileName;
+
             $user->save();
 
             $found = User_Info::whereRaw('email = ? and pass = ?', [$user->email,$user->pass])->get();
