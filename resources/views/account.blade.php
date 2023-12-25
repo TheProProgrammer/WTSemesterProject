@@ -2,6 +2,16 @@
 
 @section('title', 'Account')
 @section('content')
+
+<div class="myAccountPage">
+<div class="pageCard2">
+        <img src="{{url($user->pfp_location)}}" alt="Card image">
+            <div class="card-body">
+                <h2 class="card-title">{{ $user->name }}</h2>
+                <p class="card-text">{{ $user->address }}</p>
+                <p class="card-text">Contact Number: <price>{{ $user->phone_number }}</price></p>
+            </div>
+    </div>
     <header>
         <h1>My Ads</h1>
     </header>
@@ -19,4 +29,6 @@
             </div>
         @endforeach
     </div>
+</div>
+
 @endsection

@@ -14,6 +14,13 @@ class myController extends Controller
     public function index () 
     {
         $products = Product::all();
+        if(session()->get('user_id') == 0)
+        {
+            foreach ($products as $product)
+            {
+                $product->price = "xxx.xx";
+            }
+        }
         return view('home', ['products' => $products, 'user_id' => session()->get('user_id')]);
     }
     public function login(Request $request)
@@ -108,6 +115,7 @@ class myController extends Controller
             $user->phone_number = "xxxxxxxxxxx";
             $user->address = "xxxxxxxxxxx";
             $user->name = "Login or create account to view";
+            $product->price = "xxx.xxx";
         }
         return view('product',  ['user_id' => session()->get('user_id'), 'product' => $product, 'user' => $user]);
     }
