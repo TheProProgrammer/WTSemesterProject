@@ -215,6 +215,15 @@ h3 a:hover {
     margin-bottom: auto;
     margin-left: 5%;
 }
+.pageCard > .card-body > .card-text{
+    
+    overflow: visible;    
+    width: 300px;
+    white-space: normal;
+    word-wrap: break-word;
+    box-sizing: border-box;
+    display: block;
+}
 .pageCard {
     border: 1px solid #ddd;
     border-radius: 16px;

@@ -8,18 +8,27 @@
     <form method="POST" action="/post" enctype="multipart/form-data">
         @csrf
         <label for="title">Title:</label>
-        <input type="text"  id="title" name="title" required>
+        <input value = "{{old('title')}}" type="text"  id="title" name="title" required>
 
         <label for="description">Description:</label>
-        <textarea  id="description" name="description" rows="3" required></textarea>
+        <textarea  id="description" name="description" rows="3" required>{{old('description')}}</textarea>
         
         <label for="price">Price:</label>
-        <input type="number"  id="price" name="price" required>
+        <input value = "{{old('price')}}" type="number"  id="price" name="price" required>
         
         <label for="image">Image:</label>
         <input type="file"  id="image" name="image" required>    
         
         <button type="submit" class="btn btn-primary">Add Product</button>
     </form>
+    @if ($errors->any())
+    <div class="error">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 </div>
 @endsection

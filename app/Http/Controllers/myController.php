@@ -108,8 +108,21 @@ class myController extends Controller
             return view('post', ['user_id' => session()->get('user_id')]);
         }
         else{
-            $currentDate = Carbon::today();
 
+            $validator = Validator::make($request->all(), [
+                'title' => 'required|min:12',
+                'description' => 'required|min:50',
+                'price' => 'required|numeric|min:0',
+                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            ]);
+    
+            if ($validator->fails()) {
+                return redirect('/post')
+                    ->withErrors($validator)
+                    ->withInput();
+            }
+
+            $currentDate = Carbon::today();
             $product = new Product;
             $product->title = $request->input('title');
             $product->description = $request->input('description');
