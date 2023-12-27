@@ -170,4 +170,17 @@ class myController extends Controller
             Product::where('product_id',$id)->delete();
         return redirect('/account');
     }
+    public function showSearched($term)
+    {
+        //$products = DB::select(DB::raw("select * from products where title like '%$term%'"));
+        $products = DB::select(DB::raw("SELECT * FROM products WHERE title LIKE '%$term%' OR description LIKE '%$term%'"));
+        if(session()->get('user_id') == 0)
+        {
+            foreach ($products as $product)
+            {
+                $product->price = "xxx.xx";
+            }
+        }       
+        return $products;
+    }
 }

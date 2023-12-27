@@ -7,11 +7,15 @@
     <title>eBay - @yield('title')</title>
     <link rel="stylesheet" href="{{asset('styles/styles.css')}}">
     <link rel="icon" type="image/x-icon" href="{{asset('favicon.png')}}">
+    <script src="script.js"></script> 
 </head>
 
 <body>
     <nav>
         <a class="navbar-brand" href="/"><img src = "{{asset('images/ebayLogo.png')}}" height="35"></a>
+        @if(request()->is('/'))
+            <input id="searchbar" class="searchbar" type="text" onkeyup="suggest()" placeholder="Search..">
+        @endif
         <ul class="navbar-nav">
             @if($user_id != 0)
                 <li><a href="post">Post</a></li>
